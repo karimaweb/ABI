@@ -7,7 +7,7 @@
         try {
             $option = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
             $connexion = new PDO($dsn, USER, PASSWD, $option);
-            echo "Connexion réussie";  // Message de confirmation
+            //echo "Connexion réussie";  // Message de confirmation
         } catch (PDOException $e) {
             printf("Echec connexion : %s\n", $e->getMessage());
             exit();

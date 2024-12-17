@@ -14,14 +14,17 @@ ob_start();
     </tr>
     <?php
    
-    foreach ($projets as $projet) {
-        echo "<tr>";
-        echo "<td>{$projet['codeProjet']}</td>";
-        echo "<td>{$projet['abrege']}</td>"; 
-        echo "<td>{$projet['nomProjet']}</td>";
-        echo "<td>{$projet['typeProjet']}</td>";
-        echo "</tr>";
-    }
+   foreach ($projets as $projet) {
+    echo "<tr>";
+    echo "<td>{$projet['codeProjet']}</td>";
+    echo "<td>{$projet['abrege']}</td>"; 
+    echo "<td>{$projet['nomProjet']}</td>";
+    echo "<td>{$projet['typeProjet']}</td>";
+    echo "<td class='colsuppr'><a href=index.php?action=suppr&id=$projet[id_membre]>Supprimer</a></td>";
+    echo "<td class='colsuppr'><a href=index.php?action=modif&id=$projet[id_membre]>Modifier</a></td>";
+    echo "</tr>";
+
+}
     ?>
      <tr><td id='montd' colspan='4'><a href="index.php?action=ajouter">Ajouter un Projet</a></td></tr>
 </table>
