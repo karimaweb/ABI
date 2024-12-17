@@ -10,7 +10,7 @@ try {
         if ($_GET["action"] == "suppr") {
             if (isset($_GET["codeProjet"])) {
                 // Supprimer un projet
-                supprimer_projet($_GET["id"]);
+                supprimer_projet($_GET["codeProjet"]);
             } else {
                 throw new Exception("<span style='color:red'>Aucun code projet n'a été envoyé</span>");
             }

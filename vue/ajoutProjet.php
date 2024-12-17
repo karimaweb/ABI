@@ -9,7 +9,7 @@ ob_start();
     
     <label for="abrege">abregeProjet</label>
     <input type="text" name="abrege" id="abrege" value="<?php if (!empty($_POST["abrege"])) {
-                                                    echo $_POST["prenom"];} ?>" autocomplete="off">
+                                                    echo $_POST["abrege"];} ?>" autocomplete="off">
     <span class="erreur"><?php if (!empty($erreurs["abrege"])) {
         echo $erreurs["abrege"];} ?>
     </span>
