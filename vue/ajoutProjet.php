@@ -33,6 +33,6 @@ ob_start();
     <input type="reset" id="reset" value="Annuler">
 </form>
 <?php
-$content = ob_get_clean();
+$contenu = ob_get_clean();
 include "baselayout.php";
 ?>
