@@ -1,21 +1,29 @@
 <?php
     require 'controleur/controleur.php';
 
-
-    try {
-        if (!isset($_GET["action"])) { 
-            accueil();
-        }
-
+ 
+    if (!isset($_GET["action"])) 
+        
+        liste_clients();
 
 
-
-
-
-
-
-
-    } catch(Exception $e) {
-
-    }
 ?>
+
+   // try {
+   //     if (!isset($_GET["action"])) { 
+   //        accueil();
+   //     }
+
+
+
+
+
+
+
+
+
+   // } catch(Exception $e) {
+
+   // }
+?>
+
