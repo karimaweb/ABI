@@ -1,6 +1,7 @@
 /* Appliquer une police par défaut */
 h2{
-    align-content: center;
+    align-content: center
+    ;
 }
 .table-container {
     width: 100%;

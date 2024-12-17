@@ -27,15 +27,15 @@ try {
                         liste_projets();
                     } else {
                         // Affiche le formulaire avec les erreurs
-                        require "vue/ajoutProjet.php";
+                        require "templates/ajoutProjet.php";
                     }
                 } else {
                     // Affiche le formulaire si des champs sont manquants
-                    require "vue/ajoutProjet.php";
+                    require "templates/ajoutProjet.php";
                 }
             } else {
                 // Affiche le formulaire d'ajout si aucune requête POST n'est reçue
-                require "vue/ajoutProjet.php";
+                require "templates/ajoutProjet.php";
             }
         } else {
             // Si l'action est inconnue, lève une exception
