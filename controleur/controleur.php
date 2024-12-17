@@ -5,7 +5,7 @@ include 'modele/modele.php';
         $projets = get_all_projets();
 
 
-        require "templates/listeProjets.php";
+        require "vue/listeProjets.php";
     }
     function ajouter_projet($abrege, $nomProjet, $typeProjet) {
         // Appel de la fonction renommée dans le modèle
@@ -15,14 +15,14 @@ include 'modele/modele.php';
         $projets = get_all_projets();
     
         // Affiche la liste des projets dans la vue
-        require "templates/listeProjets.php";
+        require "vue/listeProjets.php";
     }
 
     function supprimer_projet($codeProjet){
 
         delete_projet_by_id($codeProjet);
         $projets = get_all_projets();
-        require "templates/listeProjets.php";
+        require "vue/listeProjets.php";
     
     }
     
