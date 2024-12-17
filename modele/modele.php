@@ -27,4 +27,14 @@
         }
         return $projets;
     }
+    function insert_projet($abrege, $nomProjet, $typeProjet) {
+        $connexion = connect_db();
+        $sql = "INSERT INTO projets(abrege, nomProjet, typeProjet) VALUES (:abrege, :nomProjet, :typeProjet)";
+        $reponse = $connexion->prepare($sql);
+        $reponse->bindParam(':abrege', $abrege);
+        $reponse->bindParam(':nomProjet', $nomProjet);
+        $reponse->bindParam(':typeProjet', $typeProjet);
+        $reponse->execute();
+    }
+    
 ?>

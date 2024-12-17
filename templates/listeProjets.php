@@ -4,10 +4,11 @@ ob_start();
 ?>
 <h1>Liste des Projets ABI</h1>
 <br>
+<div class="table-container">
 <table>
     <tr>
         <th>code Projet</th>
-        <th>abrege</th>
+        <th>abregeProjet</th>
         <th>nom Projet</th>
         <th>type Projet</th>
     </tr>
@@ -22,7 +23,9 @@ ob_start();
         echo "</tr>";
     }
     ?>
+     <tr><td id='montd' colspan='4'><a href="index.php?action=ajouter">Ajouter un Projet</a></td></tr>
 </table>
+</div>
 
 <?php
 $content = ob_get_clean();
