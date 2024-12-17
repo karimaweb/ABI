@@ -1,4 +1,5 @@
 <?php
+
 include 'modele/modele.php';
     
     function liste_projets(){
@@ -46,6 +47,24 @@ include 'modele/modele.php';
         return $tErreurs; // elle me retourne un tableau d'erreurs qui fera un element de test dans mon routeur index.php
     }
 
+  function liste_clients(){
+    $clients = get_all_clients();
+    require "vue/listesclients.php";
+}
 
+  function accueil(){
+       require 'vue/login.php';
+    }
         
 ?>
+
+
+
+
+
+
+
+
+?>
+
+
