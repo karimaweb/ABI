@@ -27,6 +27,26 @@
         }
         return $projets;
     }
+    function get_projet_by_id($codeProjet)
+{
+
+    $connexion = connect_db();
+    $sql = "SELECT * from projets WHERE codeProjet = :codeProjet";
+    $reponse = $connexion->prepare($sql);
+    $reponse->bindParam(':id', $codeProjet, PDO::PARAM_INT);
+    $reponse->execute();
+    return $reponse->fetch();
+}
+
+    function delete_projet_by_id($codeProjet)
+    {
+        $connexion = connect_db();
+        $sql = " DELETE FROM projets WHERE codeProjet = :codeProjet ";
+        $reponse = $connexion->prepare($sql);
+        $reponse->bindValue(":codeProjet", intval($codeProjet), PDO::PARAM_INT);
+        $reponse->execute();
+    }
+
     function insert_projet($abrege, $nomProjet, $typeProjet) {
         $connexion = connect_db();
         $sql = "INSERT INTO projets(abrege, nomProjet, typeProjet) VALUES (:abrege, :nomProjet, :typeProjet)";

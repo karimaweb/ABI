@@ -3,7 +3,6 @@
 $title = "Ajouter un Projet";
 ob_start();
 ?>
-<h1>Ajout d'un Projet</h1>
 <br><br>
 
 <form action= "index.php?action=ajouter" method="POST" id="monform">

@@ -2,33 +2,43 @@
 require_once 'controlleur/controlleur.php';
 
 try {
-    // Vérifie si le paramètre action est défini dans l'URL
-    if (!isset($_POST["action"])) {
-        // Appelle la fonction par défaut pour afficher la liste des projets
+    if (!isset($_GET["action"])) {
+        // Action par défaut : afficher la liste des projets
         liste_projets();
     } else {
-        // Vérifie l'action spécifiée dans l'URL
-        if ($_POST["action"] == "ajouter") {
-            // Gère l'ajout de projet
-            if (isset($_POST["abrege"]) && isset($_POST["nomProjet"])&&($_POST["typeProjet"])) {
-                // Vérification des champs du formulaire
-                $erreurs = control_form_fields($_POST["abrege"], $_POST["nomProjet"], $_POST["typeProjet"]);
-
-                if (empty($erreurs)) {
-                    // Si aucune erreur, ajouter le projet
-                    ajouter_projet($_POST["nomProjet"], $_POST["abrege"], $_POST["typeProjet"]);
-                    // Afficher la liste des projets après ajout
-                    liste_projets();
+        // Vérifie quelle action est demandée
+        if ($_GET["action"] == "suppr") {
+            if (isset($_GET["codeProjet"])) {
+                // Supprimer un projet
+                supprimer_projet($_GET["id"]);
+            } else {
+                throw new Exception("<span style='color:red'>Aucun code projet n'a été envoyé</span>");
+            }
+        } elseif ($_GET["action"] == "ajouter") {
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                // Vérifie si tous les champs nécessaires sont fournis
+                if (isset($_POST["abrege"]) && isset($_POST["nomProjet"]) && isset($_POST["typeProjet"])) {
+                    // Validation des champs
+                    $erreurs = control_form_fields($_POST["abrege"], $_POST["nomProjet"], $_POST["typeProjet"]);
+                    if (empty($erreurs)) {
+                        // Ajouter le projet s'il n'y a pas d'erreur
+                        ajouter_projet($_POST["nomProjet"], $_POST["abrege"], $_POST["typeProjet"]);
+                        // Afficher la liste des projets après ajout
+                        liste_projets();
+                    } else {
+                        // Affiche le formulaire avec les erreurs
+                        require "vue/ajoutProjet.php";
+                    }
                 } else {
-                    // Si des erreurs existent, réafficher le formulaire d'ajout
-                    require "templates/ajoutProjet.php";
+                    // Affiche le formulaire si des champs sont manquants
+                    require "vue/ajoutProjet.php";
                 }
             } else {
-                // Affiche le formulaire d'ajout si aucune donnée n'est envoyée
-                require "templates/ajoutProjet.php";
+                // Affiche le formulaire d'ajout si aucune requête POST n'est reçue
+                require "vue/ajoutProjet.php";
             }
         } else {
-            // Si l'action est inconnue, générer une erreur
+            // Si l'action est inconnue, lève une exception
             throw new Exception("<h1>Action inconnue : {$_GET['action']}</h1>");
         }
     }
@@ -38,3 +48,4 @@ try {
     echo "<div style='color:red; font-weight:bold;'>Erreur : {$msgErreur}</div>";
 }
 ?>
+

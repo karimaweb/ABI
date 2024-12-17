@@ -1,8 +1,9 @@
 <?php
-$title = "Les Projets";
+$title = "";
 ob_start();
 ?>
-<h1>Liste des Projets ABI</h1>
+<br><br>
+<h2>Liste des Projets ABI</h2>
 <br>
 <div class="table-container">
 <table>
@@ -11,6 +12,7 @@ ob_start();
         <th>abregeProjet</th>
         <th>nom Projet</th>
         <th>type Projet</th>
+        <th>action</th>
     </tr>
     <?php
    
@@ -20,8 +22,9 @@ ob_start();
     echo "<td>{$projet['abrege']}</td>"; 
     echo "<td>{$projet['nomProjet']}</td>";
     echo "<td>{$projet['typeProjet']}</td>";
-    echo "<td class='colsuppr'><a href=index.php?action=suppr&id=$projet[id_membre]>Supprimer</a></td>";
-    echo "<td class='colsuppr'><a href=index.php?action=modif&id=$projet[id_membre]>Modifier</a></td>";
+    
+    echo "<td class='colsuppr'><a href=index.php?action=suppr&codeProjet=$projet[codeProjet]>Supprimer</a></td>";
+    echo "<td class='colsuppr'><a href=index.php?action=modif&codeProjet=$projet[codeProjet]>Modifier</a></td>";
     echo "</tr>";
 
 }
