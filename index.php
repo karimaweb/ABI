@@ -1,5 +1,12 @@
 <?php
+
 require_once 'controleur/controleur.php';
+// PENSEZ A COMMENTER ET DECOMMENTER LE TRY/CATCH POUR TEST SES PAGES SANS AVOIR A PASSER PAR LA CONNEXION EN ATTENDANT QUE J'AI FINI
+
+
+// -------DEBUT TRY/CATCH A COMMENTER/DECOMMENTER
+// -------DEBUT TRY/CATCH A COMMENTER/DECOMMENTER
+// -------DEBUT TRY/CATCH A COMMENTER/DECOMMENTER
 
 try {
     if (!isset($_GET["action"])) {
@@ -47,5 +54,37 @@ try {
     $msgErreur = $e->getMessage();
     echo "<div style='color:red; font-weight:bold;'>Erreur : {$msgErreur}</div>";
 }
+
+// --------FIN TRY/CATCH A COMMENTER/DECOMMENTER-------------
+// --------FIN TRY/CATCH A COMMENTER/DECOMMENTER-------------
+// --------FIN TRY/CATCH A COMMENTER/DECOMMENTER-------------
+
+
+// ------------CODE POUR TESTER SIMPLEMENT DES LES PAGES-------------
+
+   // if (!isset($_GET["action"])) 
+        
+    //    liste_clients();
+
+
+
+
+   // try {
+   //     if (!isset($_GET["action"])) { 
+   //        accueil();
+   //     }
+
+
+
+
+
+
+
+
+
+   // } catch(Exception $e) {
+
+   // }
+
 ?>
 

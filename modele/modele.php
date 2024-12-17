@@ -1,4 +1,5 @@
 <?php
+
     require("connect.php");
 
     // Connexion à la BDD
@@ -27,6 +28,7 @@
         }
         return $projets;
     }
+
     function get_projet_by_id($codeProjet)
 {
 
@@ -57,4 +59,20 @@
         $reponse->execute();
     }
     
+
+
+
+      // Création de la liste des clients
+      function get_all_clients(){
+
+    $connexion = connect_db();
+    $clients = array();
+    $sql = "SELECT * from clients";
+
+    foreach ($connexion->query($sql) as $row) {
+        $clients[] = $row;
+    }
+    return $clients;
+}
+
 ?>
