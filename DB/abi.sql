@@ -137,6 +137,7 @@ CREATE TABLE IF NOT EXISTS `projets` (
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `idRole` int NOT NULL AUTO_INCREMENT,
+  `typeRole` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`idRole`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
