@@ -1,32 +1,60 @@
 
 /* Appliquer une police par défaut */
-h2{
-    align-content: center
-    ;
+/* Style pour l'arrière-plan de la page */
+/* Style pour l'arrière-plan de la page */
+body {
+    background-color: #d6eaf8; /* Bleu clair */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+/* Style pour le titre */
+h2 {
+    text-align: center;
+    color: #34495e; /* Bleu-gris foncé */
+}
+
+/* Conteneur pour la table */
 .table-container {
     width: 100%;
     overflow-x: auto;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #aed6f1; /* Bleu clair */
+    border: 2px solid #2980b9; /* Bordure bleu foncé */
+    border-radius: 10px;
 }
 
+/* Style pour la table */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate; /* Sépare les cellules pour les bordures */
+    border-spacing: 0; /* Supprime les espaces entre les cellules */
+    background-color: #f4f6f7; /* Blanc cassé */
 }
 
+/* Style des cellules et des lignes */
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #2980b9; /* Bordure bleu foncé */
+    padding: 12px;
     text-align: left;
+    background-color: #ebf5fb; /* Bleu clair doux */
 }
 
+/* Bordures des cellules */
 th {
-    background-color: #f4f4f4;
+    background-color: #2980b9; /* Bleu foncé */
+    color: white;
+    font-weight: bold;
 }
 
+/* Lien d'action dans la table */
 .actions a {
     text-decoration: none;
     margin-right: 8px;
+    font-size: 14px;
+    color: #2980b9; /* Bleu foncé */
 }
 
 .actions .btn-supprimer {
@@ -39,25 +67,13 @@ th {
     color: darkred;
 }
 
+/* Conteneur du bouton Ajouter */
 .add-container {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 10
 }
 
-.btn-add {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.btn-add:hover {
-    background-color: #218838;
-}
-=======
+/* =======
 h1 {
     text-align: center;
 }
@@ -136,4 +152,4 @@ td {
     width: 600px;
     margin: auto;
 }
-
+ */

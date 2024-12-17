@@ -16,7 +16,7 @@
         return $connexion;
     }
 
-    // Création de la liste des Stagiaires
+    // Création de la liste des projets
     function get_all_projets(){
 
         $connexion = connect_db();
