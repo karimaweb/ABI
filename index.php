@@ -54,14 +54,16 @@ try {
                     modifier_projet($codeProjet, $abrege, $nomProjet, $typeProjet); // Modifie un projet
                     echo "<span style='color:green'>Modification réussie</span>";
                     
+
                 } else {
                     throw new Exception("<span style='color:red'>Tous les champs doivent être remplis</span>");
                 }
             } else {
-                if (isset($_GET['codeProjet'])) { // Récupère l'ID du projet via GET
+                if (isset($_GET['codeProjet'])) { // Récupère le codeProjet du projet via GET
                     $projet = get_projet_by_id($_GET['codeProjet']);
                     if ($projet) {
                         require "vue/modifierProjet.php"; // Affiche le formulaire
+
                     } else {
                         throw new Exception("<span style='color:red'>Projet introuvable</span>");
                     }

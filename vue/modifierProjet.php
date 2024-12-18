@@ -4,7 +4,7 @@
 ?>
 
 
-    <h1><?= $title ?></h1>
+    
     <form action="index.php?action=modif" method="post">
         <label for="abrege">abrege Projet:</label><br>
         <input type="text" id="abrege" name="abrege" value="<?= isset($projet['abrege']) ? ($projet['abrege']) : '' ?>">

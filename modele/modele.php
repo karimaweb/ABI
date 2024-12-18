@@ -73,16 +73,16 @@
 
 
       // Création de la liste des clients
-      function get_all_clients(){
+    function get_all_clients(){
 
-    $connexion = connect_db();
-    $clients = array();
-    $sql = "SELECT * from clients";
+        $connexion = connect_db();
+        $clients = array();
+        $sql = "SELECT * from clients";
 
-    foreach ($connexion->query($sql) as $row) {
-        $clients[] = $row;
-    }
-    return $clients;
+        foreach ($connexion->query($sql) as $row) {
+            $clients[] = $row;
+        }
+        return $clients;
 }
 
 ?>
