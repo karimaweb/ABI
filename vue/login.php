@@ -1,5 +1,5 @@
 <?php
-$titre = "Connexion";
+//$titre = "Connexion";
 ob_start();
 ?>
 <form class="mt-3" >

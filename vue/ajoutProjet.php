@@ -15,10 +15,10 @@
                     
                     <!-- Champ pour abrege Projet -->
                     <div class="mb-3">
-                        <label for="abrege" class="form-label">Abrégé Projet</label>
+                        <label for="abrege" class="form-label">Abrege Projet</label>
                         <input type="text" class="form-control <?php if (!empty($erreurs["abrege"])) echo 'is-invalid'; ?>" 
                             name="abrege" id="abrege" 
-                            value="<?php echo !empty($_POST["abrege"]) ? htmlspecialchars($_POST["abrege"]) : ''; ?>" 
+                            value="<?php echo !empty($_POST["abrege"]) ? ($_POST["abrege"]) : ''; ?>" 
                             autocomplete="off">
                         <?php if (!empty($erreurs["abrege"])): ?>
                             <div class="invalid-feedback">
@@ -32,7 +32,7 @@
                         <label for="nomProjet" class="form-label">Nom Projet</label>
                         <input type="text" class="form-control <?php if (!empty($erreurs["nomProjet"])) echo 'is-invalid'; ?>" 
                             name="nomProjet" id="nomProjet" 
-                            value="<?php echo !empty($_POST["nomProjet"]) ? htmlspecialchars($_POST["nomProjet"]) : ''; ?>" 
+                            value="<?php echo !empty($_POST["nomProjet"]) ? ($_POST["nomProjet"]) : ''; ?>" 
                             autocomplete="off">
                         <?php if (!empty($erreurs["nomProjet"])): ?>
                             <div class="invalid-feedback">
@@ -46,7 +46,7 @@
                         <label for="typeProjet" class="form-label">Type Projet</label>
                         <input type="text" class="form-control <?php if (!empty($erreurs["typeProjet"])) echo 'is-invalid'; ?>" 
                             name="typeProjet" id="typeProjet" 
-                            value="<?php echo !empty($_POST["typeProjet"]) ? htmlspecialchars($_POST["typeProjet"]) : ''; ?>" 
+                            value="<?php echo !empty($_POST["typeProjet"]) ? ($_POST["typeProjet"]) : ''; ?>" 
                             autocomplete="off">
                         <?php if (!empty($erreurs["typeProjet"])): ?>
                             <div class="invalid-feedback">

@@ -35,7 +35,7 @@
     $connexion = connect_db();
     $sql = "SELECT * from projets WHERE codeProjet = :codeProjet";
     $reponse = $connexion->prepare($sql);
-    $reponse->bindParam(':id', $codeProjet, PDO::PARAM_INT);
+    $reponse->bindParam(':codeProjet', $codeProjet, PDO::PARAM_INT);
     $reponse->execute();
     return $reponse->fetch();
 }
@@ -58,7 +58,17 @@
         $reponse->bindParam(':typeProjet', $typeProjet);
         $reponse->execute();
     }
-    
+    function  update_projet($codeProjet, $abrege, $nomProjet, $typeProjet) {
+        $connexion = connect_db();
+        $sql = "UPDATE projets SET nomProjet = :nomProjet ,abrege = :abrege , typeProjet= :typeProjet WHERE codeProjet = :codeProjet";
+        $reponse = $connexion->prepare($sql);
+        $reponse->bindValue(":codeProjet", $codeProjet, PDO::PARAM_INT);
+        $reponse->bindValue(":abrege", $abrege, PDO::PARAM_STR);
+        $reponse->bindValue(":nomProjet", $nomProjet, PDO::PARAM_STR);
+        $reponse->bindValue(":typeProjet", $typeProjet, PDO::PARAM_STR);
+        $reponse->execute();
+
+}
 
 
 

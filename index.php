@@ -24,14 +24,13 @@ try {
         } elseif ($_GET["action"] == "ajouter") {
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // Vérifie si tous les champs nécessaires sont fournis
-                if (isset($_POST["abrege"]) && isset($_POST["nomProjet"]) && isset($_POST["typeProjet"])) {
+                if (isset($_POST["abrege"], $_POST["nomProjet"], $_POST["typeProjet"])) {
                     // Validation des champs
                     $erreurs = control_form_fields($_POST["abrege"], $_POST["nomProjet"], $_POST["typeProjet"]);
                     if (empty($erreurs)) {
                         // Ajouter le projet s'il n'y a pas d'erreur
                         ajouter_projet($_POST["nomProjet"], $_POST["abrege"], $_POST["typeProjet"]);
-                        // Afficher la liste des projets après ajout
-                        liste_projets();
+                        // Pas besoin d'appeler liste_projets() ici pour éviter le doublon
                     } else {
                         // Affiche le formulaire avec les erreurs
                         require "vue/ajoutProjet.php";
@@ -43,6 +42,32 @@ try {
             } else {
                 // Affiche le formulaire d'ajout si aucune requête POST n'est reçue
                 require "vue/ajoutProjet.php";
+            }
+        } elseif ($_GET["action"] == "modif") {
+            if (isset($_POST['codeProjet'], $_POST['abrege'], $_POST['nomProjet'], $_POST['typeProjet'])) {
+                $codeProjet = $_POST['codeProjet'];
+                $nomProjet = $_POST['nomProjet'];
+                $abrege = $_POST['abrege'];
+                $typeProjet = $_POST['typeProjet'];
+                
+                if (!empty($codeProjet) && !empty($abrege) && !empty($nomProjet) && !empty($typeProjet)) {
+                    modifier_projet($codeProjet, $abrege, $nomProjet, $typeProjet); // Modifie un projet
+                    echo "<span style='color:green'>Modification réussie</span>";
+                    
+                } else {
+                    throw new Exception("<span style='color:red'>Tous les champs doivent être remplis</span>");
+                }
+            } else {
+                if (isset($_GET['codeProjet'])) { // Récupère l'ID du projet via GET
+                    $projet = get_projet_by_id($_GET['codeProjet']);
+                    if ($projet) {
+                        require "vue/modifierProjet.php"; // Affiche le formulaire
+                    } else {
+                        throw new Exception("<span style='color:red'>Projet introuvable</span>");
+                    }
+                } else {
+                    throw new Exception("<span style='color:red'>code  projet manquant</span>");
+                }
             }
         } else {
             // Si l'action est inconnue, lève une exception
