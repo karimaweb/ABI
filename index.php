@@ -53,7 +53,7 @@ try {
                 if (!empty($codeProjet) && !empty($abrege) && !empty($nomProjet) && !empty($typeProjet)) {
                     modifier_projet($codeProjet, $abrege, $nomProjet, $typeProjet); // Modifie un projet
                     echo "<span style='color:green'>Modification réussie</span>";
-                    
+                    //require "vue/listeProjets.php";
 
                 } else {
                     throw new Exception("<span style='color:red'>Tous les champs doivent être remplis</span>");
