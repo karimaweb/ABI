@@ -37,7 +37,7 @@
         if (empty($abrege)) {// je teste le champ prenom
             $tErreurs['abrege'] = "Il faut remplir le champ abrege.";
         } elseif (!preg_match("/^[a-zA-Z-]{2,}$/", $abrege)) {// perg_match expression reguliere
-            $tErreurs['abrege'] = "Le champ abrege doit comporter au moins 2 caractères alphabétiques sans chiffres.";
+            $tErreurs['abrege'] = "Le champ abrege doit comporter au moins 3 caractères .";
         }
         if (empty( $nomProjet)) {
             $tErreurs['nomProjet'] = "Il faut remplir le champ nomProjet.";
